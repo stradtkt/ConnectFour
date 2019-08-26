@@ -9,6 +9,7 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
     int activePlayer = 0;
     int[] gameState = {2,2,2,2,2,2,2,2,2};
+    int[][] winingPositions = {{0,1,2}, {3,4,5}, {6,7,8}, {0,3,6}, {1,4,7}, {2,5,8}, {0,4,8}, {2,4,6}};
 
     public void dropin(View view) {
         ImageView counter = (ImageView) view;
@@ -26,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         counter.animate().translationYBy(1000f).rotation(360).setDuration(300);
+        for(int[] winingPosition : winingPositions) {
+            if(gameState[winingPosition[0]] == gameState[winingPosition[1]]
+                && gameState[winingPosition[1]] == gameState[winingPosition[2]]
+                && gameState[winingPosition[0]] != 2) {
+
+            }
+        }
     }
 
     @Override
